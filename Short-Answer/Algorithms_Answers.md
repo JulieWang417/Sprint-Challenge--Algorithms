@@ -20,6 +20,36 @@ Ignoring constants, this function recursively calls itself until hits 0, subtrac
 # Function to get minimum number of trials  
 # needed in worst case with n eggs and k floors 
 
+    def find_floor(lowest_floor, highest_floor):
+        if lowest_floor < highest_floor:
+            # dropped floor is half way between highest floor and lowest floor
+
+            floor_to_check = (lowest_floor + highest_floor) // 2
+
+            # If egg does break, repeat this process but with the new lowest floor equal 
+            # to the current lowest and the highest floor to the current floor, as we know
+            # it cannot be dropped from any higher floor and survive, but could survive 
+            # from a lower floor
+
+            if ("egg doesn't crack"):
+                return find_floor(floor_to_check+1, highest_floor)
+            # If egg doesn't break, repeat this process but with the new lowest floor
+            # equal to the current dropped_floor and the new highest floor equal to
+            # the current highest floor, as we know it could be dropped from a 
+            # higher floor and still survive.
+
+            elif ("egg cracks"):
+                return find_floor(lowest_floor, floor_to_check - 1)
+         else:
+                return floor_to_check
+
+This works very similar to a binary search. If you drop from a specific point, you can determine which section above or below you can filter out, based on if the egg breaks. Likewise, because of its similarity to a binary seach, The big-O complexity is O(log(n)). 
+
+
+
+My thought previous, finally i found it is not the correct anwser for this question. Ignore below.
+
+
 The solution is to try dropping an egg from every floor(from 1 to k) and recursively calculate the minimum number of droppings needed in the worst case.
 Worst case scenario gives the user the surety of the threshold floor. 
 When we drop an egg from a floor x, there can be two cases 
