@@ -46,6 +46,9 @@ Ignoring constants, this function recursively calls itself until hits 0, subtrac
 This works very similar to a binary search. If you drop from a specific point, you can determine which section above or below you can filter out, based on if the egg breaks. Likewise, because of its similarity to a binary seach, The big-O complexity is O(log(n)). 
 
 
+________________________________________________________________________________________________________________
+
+
 
 My thought previous, finally i found it is not the correct anwser for this question. Ignore below.
 
