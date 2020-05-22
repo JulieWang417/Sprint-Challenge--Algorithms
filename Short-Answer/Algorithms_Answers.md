@@ -39,34 +39,34 @@ The Space complexity is:O(1). As there was no use of any data structure for stor
 Here is my codes:
 
 
-import sys 
-def Drop(n, k): 
-    """
-    base case
-    If there are no floors, then no trials needed. 
-    OR if there is one floor, one trial needed. 
-    """
-    if (k == 1 or k == 0): 
-        return k   # drop(n,1)=1,drop(n,0)=0
+    import sys 
+    def Drop(n, k): 
+        """
+        base case
+        If there are no floors, then no trials needed. 
+        OR if there is one floor, one trial needed. 
+        """
+        if (k == 1 or k == 0): 
+            return k   # drop(n,1)=1,drop(n,0)=0
   
-    # We need k trials for one egg and k floors 
-    if (n == 1): 
-        return k   # drop(1,k)=k
+        # We need k trials for one egg and k floors 
+        if (n == 1): 
+            return k   # drop(1,k)=k
   
-    min = sys.maxsize 
+        min = sys.maxsize 
   
-    # Consider all droppings from 1st floor to kth floor 
-    # and return the minimum of these values plus 1. 
-    for x in range(1, k + 1): 
+        # Consider all droppings from 1st floor to kth floor 
+        # and return the minimum of these values plus 1. 
+        for x in range(1, k + 1): 
   
-        res = max(Drop(n - 1, x - 1),  
-                  Drop(n, k - x)) 
+            res = max(Drop(n - 1, x - 1),  
+            Drop(n, k - x)) 
         # egg break, go down floor: drop(n-1,x-1)
         # no break, keep going up, k-x floor left: drop(n,k-x)
         if (res < min): 
             min = res 
   
-    return min + 1 
+        return min + 1 
     
     # add 1 since we need to add this currently operation.
 
