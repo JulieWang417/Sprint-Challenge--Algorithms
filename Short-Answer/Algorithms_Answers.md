@@ -38,11 +38,14 @@ The Space complexity is:O(1). As there was no use of any data structure for stor
 
 Here is my codes:
 
+
 import sys 
 def Drop(n, k): 
-    # base case
-    # If there are no floors, then no trials needed. 
-    # OR if there is one floor, one trial needed. 
+    """
+    base case
+    If there are no floors, then no trials needed. 
+    OR if there is one floor, one trial needed. 
+    """
     if (k == 1 or k == 0): 
         return k   # drop(n,1)=1,drop(n,0)=0
   
