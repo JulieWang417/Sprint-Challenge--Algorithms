@@ -96,9 +96,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # Base case, if it is at last position, done
+        if not self.can_move_right():
+            self.set_light_off()  # turn off the light
+            return
 
+        self.set_light_on() #set the light on
+        # First swap item to set placeholder 'None'
+        self.swap_item() # now the "None" is at the index 0 place
+
+        # Move all the way to the right
+        while self.can_move_right():
+            self.move_right()
+
+        # While the item is not None (not at placeholder), compare item
+        # If smaller, swap it with current item and move left
+        # This will find the smallest item
+        while self.compare_item() is not None:
+            if self.compare_item() == 1:
+                self.swap_item()
+            self.move_left()
+
+        # now, the robot is in front of the placeholder "none"
+        # swap the smallest item with the "None"
+        self.swap_item()
+        # now, the robot hold item "None", and move right
+        self.move_right()
+        # Then repeat the process
+        self.sort()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
