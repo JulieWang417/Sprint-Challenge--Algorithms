@@ -22,22 +22,20 @@ Ignoring constants, this function recursively calls itself until hits 0, subtrac
 
     def find_floor(lowest_floor, highest_floor):
         if lowest_floor < highest_floor:
-            # dropped floor is half way between highest floor and lowest floor
+            # we firstly choose the dropped floor is half way between highest floor and lowest floor
 
             floor_to_check = (lowest_floor + highest_floor) // 2
-
-            # If egg does break, repeat this process but with the new lowest floor equal 
-            # to the current lowest and the highest floor to the current floor, as we know
-            # it cannot be dropped from any higher floor and survive, but could survive 
-            # from a lower floor
+            
+            # If egg doesn't break, repeat this process but with the new lowest floor
+            # equal to the (floor_to_check+1) and the new highest floor equal to
+            # the current highest floor
+            
 
             if ("egg doesn't crack"):
                 return find_floor(floor_to_check+1, highest_floor)
                 
-            # If egg doesn't break, repeat this process but with the new lowest floor
-            # equal to the current dropped_floor and the new highest floor equal to
-            # the current highest floor, as we know it could be dropped from a 
-            # higher floor and still survive.
+            # If egg does break, repeat this process but with the new lowest floor equal 
+            # to the current lowest and the highest floor to the current floor which is floor_to_check - 1
 
             elif ("egg cracks"):
                 return find_floor(lowest_floor, floor_to_check - 1)
