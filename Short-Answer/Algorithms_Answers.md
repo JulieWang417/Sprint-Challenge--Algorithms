@@ -33,6 +33,7 @@ Ignoring constants, this function recursively calls itself until hits 0, subtrac
 
             if ("egg doesn't crack"):
                 return find_floor(floor_to_check+1, highest_floor)
+                
             # If egg doesn't break, repeat this process but with the new lowest floor
             # equal to the current dropped_floor and the new highest floor equal to
             # the current highest floor, as we know it could be dropped from a 
